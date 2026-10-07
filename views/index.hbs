@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Sách - Cloud</title>
+</head>
+<body>
+    <h2>Thêm Sách Mới</h2>
+    <form action="/add" method="POST">
+        <input type="text" name="maSP" placeholder="Mã Sản Phẩm (VD: 300abc)" required>
+        <input type="text" name="tenSach" placeholder="Tên sách" required>
+        <input type="number" name="giaGoc" placeholder="Giá gốc" required>
+        <button type="submit">Lưu vào Đám mây</button>
+    </form>
+    <p><i>Số lượt thao tác trên Session: {{luotTruyCap}}</i></p>
+
+    <h2>Danh sách hiển thị</h2>
+    <table border="1">
+        <tr>
+            <th>Mã SP</th>
+            <th>Tên Sách</th>
+            <th>Giá Gốc</th>
+            <th>Giá Sau Thuế</th>
+        </tr>
+        {{#each sach}}
+        <tr>
+            <td>{{this.maSP}}</td>
+            <td>{{this.tenSach}}</td>
+            <td>{{this.giaGoc}}</td>
+            <td>{{this.giaSauThue}}</td>
+        </tr>
+        {{/each}}
+    </table>
+
+    <hr>
+    <footer>
+        <p>Họ tên: <b>Trần Quang Tuấn</b> | MSSV: <b>23IT300</b> | Mức VAT áp dụng: <b>6%</b></p>
+    </footer>
+</body>
+</html>
